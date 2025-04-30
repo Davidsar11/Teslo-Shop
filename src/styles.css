@@ -1,1 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
+@import "tailwindcss";
+@config '../tailwind.config.ts';
+@plugin "daisyui" {
+  themes: dark --default;
+}
+
+@layer base {
+  @font-face {
+    font-family: "Montserrat";
+    src: url("/assets/fonts/montserrat/montserrat.ttf")
+      format("truetype");
+  }
+}

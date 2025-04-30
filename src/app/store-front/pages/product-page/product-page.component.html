@@ -1,0 +1,63 @@
+<div class="divider">   </div>
+
+@if(productResource.isLoading()){
+
+<div class="flex justify-center items-center h-screen">
+  <span class="loading loading-dots loading-xl"></span>
+</div>
+}
+
+<!-- Product -->
+<!-- @if( productResource.hasValue() ) { -->
+
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+  <!-- Imagenes -->
+  <app-product-carrusel [images]="productResource.value()?.images ?? []" />
+
+  <!-- texto -->
+
+  <div>
+    <h2 class="text-2xl font-bold font-montserrat text-secondary">
+      {{ productResource.value()?.title }}
+    </h2>
+
+    <div class="divider"></div>
+
+    <p>{{ productResource.value()?.description }}</p>
+
+    <br>
+
+    <div class="grid grid-cols-3 sm:grid-cols-4 gap-3">
+
+
+      <div class="badge badge-secondary">{{productResource.value()?.price}} €</div>
+
+      <div class="badge badge-secondary">{{productResource.value()?.stock}} Items Left </div>
+
+      <div class="badge badge-outline badge-secondary">{{productResource.value()?.gender |titlecase}}</div>
+
+
+
+    </div>
+    <div class="divider"></div>
+
+    <p> Disponible en las siguientes tallas </p>
+
+    <div class="mt-5 grid grid-cols-3 sm:grid-cols-4 gap-3">
+
+      @for (item of productResource.value()?.sizes; track $index) {
+
+        <div class="badge badge-outline badge-secondary">{{item}}</div>
+      }
+
+
+
+
+    </div>
+
+
+
+  </div>
+</div>
+
+<!-- } -->

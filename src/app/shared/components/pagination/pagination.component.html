@@ -1,0 +1,16 @@
+<div class="join flex justify-center items-center mb-10 mt-5">
+  @for (item of getPagesList(); track item) {
+
+  <button
+    class="join-item btn btn-square"
+    type="radio"
+    name="options"
+    [class.btn-secondary]="this.activePage() == item"
+    [routerLink]="[]"
+    [queryParams]="{page:item}"
+    (click)="this.activePage.set(item)"
+  >
+    {{ item }}
+  </button>
+  }
+</div>

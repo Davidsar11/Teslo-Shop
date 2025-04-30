@@ -7,7 +7,7 @@ import {
   ProductResponse,
 } from '@products/interfaces/product.interface';
 import { forkJoin, map, Observable, of, switchMap, tap } from 'rxjs';
-import { environment } from 'src/environments/environment.development';
+import { environment } from 'src/environments/environment';
 
 const baseUrl = environment.baseUrl;
 
